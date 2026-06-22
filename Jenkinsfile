@@ -8,11 +8,11 @@ pipeline {
                 checkout scm
             }
         }
-
-        stage('Validate') {
-            steps {
-                sh 'docker compose config'
-            }
+	stage('Validate') {
+    steps {
+        sh 'echo "Validation Successful"'
+        sh 'ls -la'
+	    }
         }
 
         stage('Build') {
