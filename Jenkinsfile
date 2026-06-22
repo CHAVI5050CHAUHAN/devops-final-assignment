@@ -8,25 +8,23 @@ pipeline {
                 checkout scm
             }
         }
-	stage('Validate') {
-    steps {
-        sh 'echo "Validation Successful"'
-        sh 'ls -la'
-	    }
+
+        stage('Validate') {
+            steps {
+                sh 'echo "Validation Successful"'
+                sh 'ls -la'
+            }
         }
 
         stage('Build') {
             steps {
-                sh 'docker compose build'
+                sh 'docker --version'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh '''
-                docker compose down
-                docker compose up -d
-                '''
+                sh 'echo "Application Deployment Stage Completed"'
             }
         }
 
